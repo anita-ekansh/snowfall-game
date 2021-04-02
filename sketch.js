@@ -8,11 +8,12 @@ var maxDrops = 30;
 var drops=[];
 var maxDrops2 = 30;
 var drops2=[];
+var sound;
 //var snowBack, snowBackImage;
 
-//function preload(){
-  //snowBackImage = loadImage("snow1.jpg")
-//}
+function preload(){
+  sound = loadSound("sound (2).mp3");
+}
 
 function setup() {
   createCanvas(1100,400);
@@ -20,25 +21,27 @@ function setup() {
   world = engine.world;
 
   back = new Back(400,200);
-  drop= new Drop(0, 870, 3);
-  drop2= new Drop2(0, 870, 3);
+  drop= new Drop(0, 330, 3);
+  drop2= new Drop2(430, 870, 3);
   
   if(frameCount%100===0){
     for(var i=0; i<maxDrops;i++){
-      drops.push(new Drop(random(-900,490),random(0,400),3,10));
+      drops.push(new Drop(random(-900,330),random(0,400),3,10));
      }
   }
 
   if(frameCount%100===0){
     for(var i=0; i<maxDrops2;i++){
-      drops2.push(new Drop2(random(-900,490),random(0,400),3,10));
+      drops2.push(new Drop2(random(430,770),random(0,400),3,10));
      }
   }
 }
 
 function draw() {
   background(255,255,255); 
-  Engine.update(engine); 
+  Engine.update(engine);
+  
+  sound.play(false);
 
   back.display();
   drop.display();

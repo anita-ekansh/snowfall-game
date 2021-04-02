@@ -23,7 +23,7 @@ class Drop{
     }
     update(){
         if(this.body.position.y>400){
-           Matter.Body.setPosition(this.body,{x: random(-330,320),
+           Matter.Body.setPosition(this.body,{x: random(-330,300),
            y: random(-0,0)})
          }
     }
